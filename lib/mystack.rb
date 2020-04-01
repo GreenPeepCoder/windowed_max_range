@@ -16,10 +16,10 @@ class MyStack
   end
 
   def pop
-    @store.shift
+    @store.pop
   end
 
   def push(element)
-    @store.unshift(element)
+    @store.push(element)
   end
 end

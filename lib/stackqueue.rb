@@ -1,4 +1,4 @@
-require 'mystack'
+require_relative 'mystack'
 
 class StackQueue
     def initialize
@@ -7,14 +7,24 @@ class StackQueue
     end
 
     def size
+        @push_stack.size + @pop_stack.size
     end
 
     def empty?
+        @pop_stack.empty? && @push_stack.empty?
     end
 
-    def enqueue
+    def enqueue(ele)
+        @push_stack.push(ele)
     end
 
     def dequeue
+        queueify if @pop_stack.empty?
+        @pop_stack.pop
+    end
+
+    private
+    def queueify
+        @pop_stack.push(@push_stack.pop) until @push_stack.empty?
     end
 end
