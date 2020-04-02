@@ -4,7 +4,7 @@ class MyStack
   end
 
   def peek
-    @store.first
+    @store.last
   end
 
   def size
